@@ -11,7 +11,7 @@ A service called Boomerang exists. While they seem to have a very nice GUI the p
 
 Besides, are you sure you want a third party to access all your emails?
 
-Instead, I created an open source Google app script. If you are programmer you should easily be able to read the code and understand what it does. You can run it yourself.
+Instead, I created an open source Google app script. If you are programmer you should easily be able to read the code and understand what it does. You can run it yourself on Google's servers for free.
 
 ## How to 
 
