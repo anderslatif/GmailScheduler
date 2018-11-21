@@ -14,34 +14,24 @@ or simply use a Unix timestamp
 }*/
 
 
-// This triggers my function every 1 hours.
-// Google won't let you trigger it more frequently 
-function createTimeDrivenTriggers() {
-  ScriptApp.newTrigger('sendEmailsOrNot')
-      .timeBased()
-      .everyHours(1)
-      .create();
-}
-
-
-// loop through the drafts and extract the 
+// loop through the drafts and extract the date
+// if the desired send date is older than 
 function sendEmailsOrNot() {
 
     const drafts = GmailApp.getDraftMessages();
 
     drafts.forEach(function(draft) {
         
-      const draftUniqueId = "" + draft.getId();
-      const message = GmailApp.getMessageById(draftUniqueId);
+        const draftUniqueId = "" + draft.getId();
+        const message = GmailApp.getMessageById(draftUniqueId);
       
         const currentTime = new Date();      
 
         /// splits the actual message based on the delimiter
         const subject = message.getSubject().split(";;;");
-      Logger.log("Scheduled time: %s", subject[1]);
-      Logger.log("Current time: %s", currentTime);
+        Logger.log("Scheduled time: %s", subject[1]);
+        Logger.log("Current time: %s", currentTime);
 
-        // for readability
         const scheduledTime = Date.parse(subject[1]);
         // Date.parse shouldn't really be used read the MDN documentation
         // for now follow the correct format: 04 Dec 1995 00:12:00 GMT (time is optional)
