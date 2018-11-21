@@ -6,23 +6,23 @@ or simply use a Unix timestamp
 */
 
 // This is for debugging/manual use - triggers the function immediately
-function triggerImmediately() {
+/*function triggerImmediately() {
   ScriptApp.newTrigger('sendEmailsOrNot')
      .timeBased()
      .after(1) // miliseconds
      .create();
-}
+}*/
 
 
 // This triggers my function every 1 hours.
 // Google won't let you trigger it more frequently 
-/*function createTimeDrivenTriggers() {
+function createTimeDrivenTriggers() {
   ScriptApp.newTrigger('sendEmailsOrNot')
       .timeBased()
       .everyHours(1)
       .create();
 }
-*/
+
 
 // loop through the drafts and extract the 
 function sendEmailsOrNot() {
