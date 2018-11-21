@@ -21,7 +21,7 @@ Write an email. Put it in the drafts. In the subject line write a Javascript par
 Subject line;;;21 Nov 2018 09:48 GMT
 ```
 
-Google only allows setting a trigger every hour. This trigger will go through all the drafts and if it finds a date that is older than your current time in your timezone then it will send the draft and delete it. 
+Create a time based trigger for the function. This trigger will go through all the drafts and if it finds a date that is older than your current time in your timezone then it will send the draft and delete it from the drafts. 
 
 
 ## Google App Script how to
