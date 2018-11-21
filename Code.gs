@@ -1,7 +1,8 @@
 /*
-The delimiter is four semi-colons: ;;;; 
+The delimiter is three semi-colons: ;;; 
 the email body is split so the actual message is first and the scheduled time second
 after the delimiter type a valid Javascript date. Ex.: 04 Dec 1995 00:12:00 GMT 
+or simply use a Unix timestamp
 */
 
 // This is for debugging/manual use - triggers the function immediately
@@ -33,15 +34,18 @@ function sendEmailsOrNot() {
       const draftUniqueId = "" + draft.getId();
       const message = GmailApp.getMessageById(draftUniqueId);
       
-        const currentTime = new Date().getTime();      
+        const currentTime = new Date();      
 
         /// splits the actual message based on the delimiter
-        const subject = message.getSubject().split(";;;;");
-      Logger.log(subject);
+        const subject = message.getSubject().split(";;;");
+      Logger.log("Scheduled time: %s", subject[1]);
+      Logger.log("Current time: %s", currentTime);
+
         // for readability
         const scheduledTime = Date.parse(subject[1]);
         // Date.parse shouldn't really be used read the MDN documentation
         // for now follow the correct format: 04 Dec 1995 00:12:00 GMT (time is optional)
+        // or a Unix timestamp
       
         // For debugging: temporarily hardcoding the schedule to send after 1 second
         // const scheduledTime = new Date(currentTime + 1000).getTime();
